@@ -1,0 +1,11 @@
+version: 1
+extends: ghcr.io/pithecene/bosun-config@sha256:1168ffc7b77aa2c2f3f751059a0f8af0d0c694edc095b09b0d9c4b2ea34d955c
+comments: {}
+commands:
+  profile: [bash, .github/scripts/check.sh]
+process:
+  stages:
+    - name: verify
+      steps:
+        - verify: [profile]
+        - check
