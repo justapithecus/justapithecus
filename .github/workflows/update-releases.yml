@@ -24,21 +24,31 @@ jobs:
       contents: write
     steps:
       - name: 📥 Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
 
       - name: 🔄 Rewrite the releases block
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNERS: pithecene
-        run: .github/scripts/update-releases.sh
+        run: bash .github/scripts/update-releases.sh
+
+      - name: 🧪 Check scripts
+        run: bash .github/scripts/check.sh
+
+      - name: 🧾 Check generated copy
+        env:
+          BOSUN_REGISTRY_TOKEN: ${{ secrets.BOSUN_REGISTRY_TOKEN }}
+        run: bash .github/scripts/bosun.sh check --pull-request "$GITHUB_EVENT_PATH"
 
       - name: 📤 Commit when it changed
         run: |
-          if git diff --quiet README.md; then
+          if git diff --quiet -- README.md; then
             echo "releases unchanged"
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898+github-actions[bot]@users.noreply.github.com'
-          git commit -am 'chore(profile): 🍱 refresh recent releases'
+          git commit --only -m 'chore(profile): 🍱 refresh recent releases' -- README.md
           git push
