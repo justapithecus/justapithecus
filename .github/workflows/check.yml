@@ -1,0 +1,52 @@
+name: 🧾 Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: >-
+    check-${{ github.event.pull_request.number || github.ref }}${{ github.event.action == 'edited' && '-edit' || '' }}
+  cancel-in-progress: true
+
+jobs:
+  scripts:
+    name: 🧪 Scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 🧪 Check scripts
+        run: bash .github/scripts/check.sh
+
+  bosun:
+    name: 🧾 Bosun
+    if: >-
+      github.event_name != 'pull_request' ||
+      (github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.login != 'dependabot[bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 🧾 Check repository and pull request
+        env:
+          BOSUN_REGISTRY_TOKEN: ${{ secrets.BOSUN_REGISTRY_TOKEN }}
+        run: bash .github/scripts/bosun.sh check --pull-request "$GITHUB_EVENT_PATH"
