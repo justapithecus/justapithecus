@@ -1,5 +1,5 @@
 name: 🔄 Update releases
-run-name: Refresh recent releases in the profile README
+run-name: Refresh latest releases in the profile README
 
 on:
   workflow_dispatch:
