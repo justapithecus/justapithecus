@@ -4,11 +4,16 @@
 
 I build search systems and data infrastructure at [Pithecene](https://pithecene.sh).
 
-## Selected Work
+## Jade · 玉枰象棋
 
-- **[Quarry](https://github.com/pithecene/quarry)** runs extraction scripts and saves their output through **[Lode](https://github.com/pithecene/lode)**, a Go library for versioned data on disk or S3.
+I am building a Xiangqi (Chinese chess) app around a pale jade board and boxwood pieces, for play and study.
+
+**[Follow Jade’s development →](https://github.com/play-jade/jade)**
+
+## Systems & Languages
+
+- **[Quarry](https://github.com/pithecene/quarry)** runs TypeScript extraction scripts and saves their output through **[Lode](https://github.com/pithecene/lode)**, a Go library for versioned data on disk or S3.
 - **[Dao](https://github.com/pithecene/dao)** is a programming language for structured computation, with a compiler, runtime, and playground.
-- I am building **[Jade](https://github.com/play-jade/jade)** for playing and studying Xiangqi, with a shared Rust rules engine.
 
 [Software and examples](https://andrewhu.nyc/software) · [Notes](https://andrewhu.nyc/#notes) · [Personal site](https://andrewhu.nyc)
 

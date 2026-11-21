@@ -8,8 +8,8 @@ Read and apply the pinned [organization guardrails](https://github.com/pithecene
 The file `bosun.yaml` pins the shared development process and review criteria.
 The file `.github/bosun-image` pins the Bosun release and image digest for local checks and CI.
 
-Apply the release's [prose contract](https://github.com/pithecene/bosun/blob/fc79c8e55f01ac78c986ab9ef9053b3aa1d8a1fe/records/contracts/PROSE.md) to documentation, workflow text, commit messages, and pull requests.
-The [configuration contract](https://github.com/pithecene/bosun/blob/fc79c8e55f01ac78c986ab9ef9053b3aa1d8a1fe/records/contracts/CONFIG.md) defines the supported settings.
+Apply the release's [prose contract](https://github.com/pithecene/bosun/blob/18590eecd897f0eab32f6bf9e7d87ae90ada5eee/records/contracts/PROSE.md) to documentation, workflow text, commit messages, and pull requests.
+The [configuration contract](https://github.com/pithecene/bosun/blob/18590eecd897f0eab32f6bf9e7d87ae90ada5eee/records/contracts/CONFIG.md) defines the supported settings.
 Change pins through a reviewed commit, and verify the source release or policy publication for each new digest.
 
 ## Profile
@@ -53,5 +53,5 @@ The owner merges pull requests.
 
 Install workstation hooks with `bosun hook install` from a supported host installation.
 Repository configuration does not install those hooks.
-Keep the workstation hook current under the [hook contract](https://github.com/pithecene/bosun/blob/fc79c8e55f01ac78c986ab9ef9053b3aa1d8a1fe/records/contracts/HOOKS.md).
+Keep the workstation hook current under the [hook contract](https://github.com/pithecene/bosun/blob/18590eecd897f0eab32f6bf9e7d87ae90ada5eee/records/contracts/HOOKS.md).
 The runtime settings select its installation independently of the repository's check pin.
