@@ -18,7 +18,7 @@ Keep the introduction brief and retain Andrew's first-person voice.
 Verify technical claims against the project's published documentation.
 Keep names, prose, and destination links in native Markdown so they remain readable at narrow widths.
 Preserve the artwork's full aspect ratio and describe the scene in its alt text.
-Keep historical generation prompts as quoted source material in `art/README.md`.
+Record the selected artwork's provenance and quoted generation brief in `art/README.md`.
 
 ## Release Updates
 
