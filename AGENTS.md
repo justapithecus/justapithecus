@@ -46,7 +46,7 @@ The stage `bosun run verify` runs the registered profile checks and Bosun checks
 ## Delivery
 
 Use a linked worktree for each change and retain an existing pull request when its goal still holds.
-Use a host installation that matches the release in `.github/bosun-image` for verification and delivery.
+A host installation for verification and delivery must match the release in `.github/bosun-image`.
 Run `bosun run local-review`, `bosun run publish`, and `bosun run forge-review` after verification.
 Sign commits and preserve published history.
 The owner merges pull requests.
