@@ -1,0 +1,54 @@
+name: 🔄 Update releases
+run-name: Refresh latest releases in the profile README
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - .github/scripts/update-releases.sh
+      - .github/workflows/update-releases.yml
+
+concurrency:
+  group: update-releases
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: 🔄 Update
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔄 Rewrite the releases block
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNERS: pithecene
+        run: bash .github/scripts/update-releases.sh
+
+      - name: 🧪 Check scripts
+        run: bash .github/scripts/check.sh
+
+      - name: 🧾 Check generated copy
+        env:
+          BOSUN_REGISTRY_TOKEN: ${{ secrets.BOSUN_REGISTRY_TOKEN }}
+        run: bash .github/scripts/bosun.sh check --pull-request "$GITHUB_EVENT_PATH"
+
+      - name: 📤 Commit when it changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "releases unchanged"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898+github-actions[bot]@users.noreply.github.com'
+          git commit --only -m 'chore(profile): 🍱 refresh recent releases' -- README.md
+          git push
