@@ -1,21 +1,17 @@
-<img src="art/suzhou-xiangqi.webp" alt="A loose watercolor of two people playing Xiangqi beside a Suzhou canal, with a covered boat and an arched stone bridge." width="100%">
+<img src="art/mediterranean-highland-coast.webp" alt="A painterly Mediterranean coastal highland with olive groves, stone terraces, a hillside village and a distant blue sea." width="100%">
 
 # Andrew Hu
 
-I build search systems and data infrastructure at [Pithecene](https://pithecene.sh).
+I build software for search, data systems, and computation at [Pithecene](https://pithecene.sh).
 
-## Jade · 玉枰象棋
+## Selected Projects
 
-I am building a Xiangqi (Chinese chess) app around a pale jade board and boxwood pieces, for play and study.
+- **[Quarry](https://github.com/pithecene/quarry)**: Web data extraction.
+- **[Lode](https://github.com/pithecene/lode)**: Versioned data storage.
+- **[Dao](https://github.com/pithecene/dao)**: A programming language for structured computation.
+- **[Jade](https://github.com/play-jade/jade)**: A place to play, study, and explore Xiangqi.
 
-**[Follow Jade’s development →](https://github.com/play-jade/jade)**
-
-## Systems & Languages
-
-- **[Quarry](https://github.com/pithecene/quarry)** runs TypeScript extraction scripts and saves their output through **[Lode](https://github.com/pithecene/lode)**, a Go library for versioned data on disk or S3.
-- **[Dao](https://github.com/pithecene/dao)** is a programming language for structured computation, with a compiler, runtime, and playground.
-
-[Software and examples](https://andrewhu.nyc/software) · [Notes](https://andrewhu.nyc/#notes) · [Personal site](https://andrewhu.nyc)
+[Website](https://andrewhu.nyc) · [Software](https://andrewhu.nyc/software) · [Notes](https://andrewhu.nyc/#notes)
 
 <details>
 <summary>Latest releases</summary>
